@@ -28,7 +28,7 @@ class Profiler {
   // recorded or not.
   enum class EventType {
     // Default event type, the metadata field has no special significance.
-    DEFAULT = 1,
+    STANDARD = 1,
 
     // The event is an operator invocation and the event_metadata field is the
     // index of operator node.
@@ -103,7 +103,7 @@ class Profiler {
 class ScopedProfile {
  public:
   ScopedProfile(Profiler* profiler, const char* tag,
-                Profiler::EventType event_type = Profiler::EventType::DEFAULT,
+                Profiler::EventType event_type = Profiler::EventType::STANDARD,
                 int64_t event_metadata = 0)
       : profiler_(profiler), event_handle_(0) {
     if (profiler) {
